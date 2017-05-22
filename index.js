@@ -1,4 +1,4 @@
-import keypress from 'keypress.js'
+import keypress from './keypress.js'
 
 export const keypressListener = (state={}, action) => {
   switch (action.type) {
