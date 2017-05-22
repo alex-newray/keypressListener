@@ -1,3 +1,5 @@
+import keypress from 'keypress.js'
+
 export const keypressListener = (state={}, action) => {
   switch (action.type) {
     case "KEYPRESSLISTENER_SET":
@@ -11,6 +13,13 @@ export const setKeypressListener = (listener) => {
   return {
     type:'KEYPRESSLISTENER_SET',
     payload:listener
+  }
+}
+
+export const initKeypressListener = () => {
+  return (dispatch, getState) => {
+    let listener = new keypress.Listener();
+    dispatch(setKeypressListener(listener))
   }
 }
 
